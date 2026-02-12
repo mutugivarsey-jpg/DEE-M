@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-DEE'S Salon & Beauty Spa | www.mdeesalon.ke</title>
+
+<meta name="description" content="M-DEE'S Salon & Beauty Spa – Hair, beauty & spa services. Book via WhatsApp.">
+<link rel="canonical" href="https://www.mdeesalon.ke">
+
+<style>
+:root{
+  --gold:#c9a227;
+  --black:#000;
+  --bg:#fffaf0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#222;
+}
+header{
+  background:linear-gradient(135deg,var(--black),var(--gold));
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+}
+h1{margin:10px 0}
+.btn{
+  background:var(--gold);
+  color:#000;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  display:inline-block;
+}
+section{
+  padding:50px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+.tabs button{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
+}
+.tabs button.active{
+  background:var(--gold);
+  color:#000;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+.gallery img,
+.gallery video{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  cursor:pointer;
+}
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.lightbox img,
+.lightbox video{
+  max-width:90%;
+  max-height:90%;
+}
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:16px 18px;
+  border-radius:50%;
+  font-size:24px;
+  text-decoration:none;
+}
+footer{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+}
+footer a{color:var(--gold)}
+</style>
+
+<script>
+function showTab(tab){
+  images.style.display = tab==='images' ? 'grid' : 'none';
+  videos.style.display = tab==='videos' ? 'grid' : 'none';
+  imgBtn.classList.toggle('active', tab==='images');
+  vidBtn.classList.toggle('active', tab==='videos');
+}
+function openBox(el){
+  box.style.display='flex';
+  box.innerHTML='';
+  box.appendChild(el.cloneNode(true));
+}
+function closeBox(){box.style.display='none'}
+</script>
+</head>
+
+<body>
+
+<header>
+  <h1>M-DEE'S SALON & BEAUTY SPA</h1>
+  <p>Luxury Hair • Beauty • Confidence</p>
+  <p><strong>www.mdeesalon.ke</strong></p>
+  <a class="btn" href="https://wa.me/254704068060" target="_blank">Book via WhatsApp</a>
+</header>
+
+<section>
+  <h2 style="text-align:center">Gallery</h2>
+
+  <div class="tabs">
+    <button id="imgBtn" class="active" onclick="showTab('images')">Images</button>
+    <button id="vidBtn" onclick="showTab('videos')">Videos</button>
+  </div>
+
+  <div id="images" class="gallery">
+    <!-- Example -->
+    <!-- <img src="assets/image1.jpg" onclick="openBox(this)"> -->
+  </div>
+
+  <div id="videos" class="gallery" style="display:none">
+    <!-- Example -->
+    <!-- <video src="assets/video1.mp4" controls onclick="openBox(this)"></video> -->
+  </div>
+</section>
+
+<footer>
+  <p>
+    <a href="#">Instagram</a> |
+    <a href="#">Facebook</a> |
+    <a href="#">TikTok</a>
+  </p>
+  <p>© 2026 M-DEE'S Salon & Beauty Spa</p>
+</footer>
+
+<div id="box" class="lightbox" onclick="closeBox()"></div>
+<a class="whatsapp" href="https://wa.me/254704068060">💬</a>
+
+</body>
+</html>
